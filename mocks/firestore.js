@@ -20,10 +20,10 @@ const mockBatchSet = jest.fn();
 function buildDocFromHash(hash = {}) {
   return {
     exists: !!hash || false,
-    id: hash.id || 'abc123',
+    id: hash.docId || hash.id || 'abc123',
     data() {
       const copy = { ...hash };
-      delete copy.id;
+      delete copy.docId;
       return copy;
     },
   };
